@@ -1,0 +1,17 @@
+name: Run Eagler Container
+
+on:
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  run-eagler:
+    runs-on: ubuntu-latest
+
+    env:
+      SERVER: sample.exaroton.me:41740
+
+    steps:
+      - name: Pull and run the container with SERVER env var
+        run: |
+          docker pull qwedfrnhgef/eagler
+          docker run -e SERVER=${{ env.SERVER }} qwedfrnhgef/eagler

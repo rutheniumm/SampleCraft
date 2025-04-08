@@ -1,0 +1,16 @@
+app = "eagler-app"
+primary_region = "ams"
+
+[build]
+image = "qwedfrnhgef/eagler"
+
+[env]
+SERVER = "sample.exaroton.me:41740"
+
+[[services]]
+  internal_port = 80
+  protocol = "tcp"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
